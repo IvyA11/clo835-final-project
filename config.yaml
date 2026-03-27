@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: final
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: final
+data:
+  BACKGROUND_IMAGE_URL: "s3://YOUR_BUCKET_NAME/bg.jpg"
+  STUDENT_NAME: "Your Name"
+  DBHOST: "mysql-service"
+  DBPORT: "3306"
+  DATABASE: "employees"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: final
+type: Opaque
+stringData:
+  DBUSER: "admin"
+  DBPWD: "password123"

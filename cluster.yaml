@@ -1,0 +1,29 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: clo835-cluster
+  region: us-east-1
+  version: "1.32"
+
+iam:
+  serviceRoleARN: "arn:aws:iam::506273369225:role/LabRole"
+
+vpc:
+  id: "vpc-0db46b121c4dd2b39"
+  subnets:
+    public:
+      us-east-1a:
+        id: "subnet-03c8cccbf8b53a4e3"
+      us-east-1b:
+        id: "subnet-008729b9be0a6634d"
+
+managedNodeGroups:
+  - name: workers
+    instanceType: t3.medium
+    minSize: 2
+    maxSize: 2
+    desiredCapacity: 2
+    volumeSize: 20
+    iam:
+      instanceRoleARN: "arn:aws:iam::506273369225:role/LabRole"

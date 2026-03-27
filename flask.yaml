@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+  namespace: final
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      serviceAccountName: clo835
+      containers:
+      - name: flask
+        image: 506273369225.dkr.ecr.us-east-1.amazonaws.com/clo835-flask-app:latest
+        ports: [{ containerPort: 81 }]
+        envFrom:
+        - configMapRef: { name: app-config }
+        - secretRef: { name: mysql-secret }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+  namespace: final
+spec:
+  type: LoadBalancer
+  ports: [{ port: 80, targetPort: 81 }]
+  selector: { app: flask }
