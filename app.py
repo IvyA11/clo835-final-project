@@ -39,6 +39,8 @@ def download_s3_image():
             logging.error(f"Error downloading from S3: {e}")
 
 # --- STEP 4: DATABASE CONNECTION ---
+db_conn = None  # Initialize the variable so it always exists
+
 try:
     db_conn = connections.Connection(
         host=DBHOST,
@@ -50,7 +52,7 @@ try:
     logging.info("Connected to MySQL successfully.")
 except Exception as e:
     logging.error(f"Could not connect to MySQL: {e}")
-
+    # You might want to add a print(e) here to see the ACTUAL error in logs
 # --- STEP 5: ROUTES ---
 
 @app.route("/", methods=['GET', 'POST'])
