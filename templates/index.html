@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group1</title>
+    <style>
+        body {
+            /* This points to the image downloaded from S3 */
+            background-image: url('/static/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        h1 { margin-bottom: 20px; }
+        .nav-links a {
+            color: #00d4ff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .nav-links a:hover { color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Group1</h1>
+        <p>Cloud-Based Employee Management System</p>
+        <hr>
+        <div class="nav-links">
+            <a href="/getemp">View Employees</a>
+            <a href="/addemp">Add New Employee</a>
+            <a href="/about">About Us</a>
+        </div>
+    </div>
+</body>
+</html>

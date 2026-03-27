@@ -9,8 +9,9 @@ metadata:
   name: app-config
   namespace: final
 data:
-  BACKGROUND_IMAGE_URL: "s3://YOUR_BUCKET_NAME/bg.jpg"
-  STUDENT_NAME: "Your Name"
+  # Updated to your new bucket name
+  BACKGROUND_IMAGE_URL: "s3://group1-final-project/bg.jpg"
+  STUDENT_NAME: "Group1"
   DBHOST: "mysql-service"
   DBPORT: "3306"
   DATABASE: "employees"
@@ -22,5 +23,5 @@ metadata:
   namespace: final
 type: Opaque
 stringData:
-  DBUSER: "admin"
+  DBUSER: "root"
   DBPWD: "password123"
